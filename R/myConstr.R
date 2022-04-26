@@ -20,7 +20,7 @@ myConstr = function(x, y, alpha){
   ci = t["conf.int"]
   p_value = t["p.value"]
 
-  # the named list
+  # the named list CHECK CHECK
   myList = list(data = df, alpha = alpha, confidence_interval = ci, p_value = p_value)
   class(myList) = "Rttest"
   myList
