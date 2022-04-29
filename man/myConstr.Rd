@@ -2,22 +2,27 @@
 % Please edit documentation in R/myConstr.R
 \name{myConstr}
 \alias{myConstr}
-\title{Constructor function}
+\title{Constructor function
+
+Takes two vectors and a alpha value, and returs a list containing a data frame of the vectors, alpha, confidence interval, and the p-value from a t-test. Assumes that the variances of the two vectors are equal.}
 \usage{
 myConstr(x, y, alpha)
 }
 \arguments{
-\item{alpha}{}
+\item{x}{vector describing population x}
+
+\item{y}{vector describing population y}
+
+\item{alpha}{alpha value for the t-test}
 }
 \value{
 a list containing a data frame of the vectors, alpha, confidence interval, and the p-value
 }
 \description{
+Constructor function
+
 Takes two vectors and a alpha value, and returs a list containing a data frame of the vectors, alpha, confidence interval, and the p-value from a t-test. Assumes that the variances of the two vectors are equal.
 }
 \examples{
-x <-rnorm(30,5,2); y<- rnorm(30, 3,2); alpha <- 0.05; myConstr(x = x, y = y, alpha = 0.05)
-
-
-
+\dontrun{ obj <- myConstr(x = x, y = y, alpha = 0.05)}
 }

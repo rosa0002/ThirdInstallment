@@ -1,23 +1,19 @@
-#' Constructor function
+#' @title Constructor function
 #'
 #' Takes two vectors and a alpha value, and returs a list containing a data frame of the vectors, alpha, confidence interval, and the p-value from a t-test. Assumes that the variances of the two vectors are equal.
 #'
 #'
-#' @param x
-#' @param y
-#' @param alpha
+#' @param x vector describing population x
+#' @param y vector describing population y
+#' @param alpha alpha value for the t-test
 #'
 #' @return a list containing a data frame of the vectors, alpha, confidence interval, and the p-value
 #' @export
 #'
 #' @examples
-#' x <-rnorm(30,5,2); y<- rnorm(30, 3,2); alpha <- 0.05; myConstr(x = x, y = y, alpha = 0.05)
-#'
-#'
-#'
+#' \dontrun{ obj <- myConstr(x = x, y = y, alpha = 0.05)}
 myConstr = function(x, y, alpha){
   df <- data.frame(x=x,y=y)
-  library(stats)
   t = stats::t.test(x, y, mu=0, var.equal = TRUE)
 
   ci = t["conf.int"]
@@ -29,12 +25,5 @@ myConstr = function(x, y, alpha){
   myList
 }
 
-library(magrittr)
-library(kableExtra)
 
-print.Rttest = function(x){
-  library(kableExtra)
-  kableExtra::kable_styling(kable(x[["data"]], align = c('c', 'c') ,linesep = "\\addlinespace", digits = 4, booktabs = TRUE, caption = "population samples y and x"))
-
-}
 
