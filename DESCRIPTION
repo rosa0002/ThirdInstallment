@@ -4,11 +4,11 @@ Title: Third installment for package project
 Version: 0.1.0
 Author: Wagner Rosa 
 Maintainer: Wagner Rosa <wagner.e.rosa-1@ou.edu>
-Description: This package receives 2 population variables, and outputs the data frame, the confidence interval, the p-value, and alpha. 
-    It The constructor function assumes that the variances of the two populations are equal.
-License: MIT
+Description: This package receives 2 population variables, and outputs the data frame, the confidence interval, the p-value, and alpha. It The constructor function assumes that the variances of the two populations are equal.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: magrittr, kableExtra, ggplot2, stats
 RoxygenNote: 7.1.2
 URL: https://github.com/rosa0002/ThirdInstallment
 BugReports: https://github.com/rosa0002/ThirdInstallment/issues

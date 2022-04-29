@@ -13,10 +13,13 @@
 #' @examples
 #' x <-rnorm(30,5,2); y<- rnorm(30, 3,2); alpha <- 0.05; myConstr(x = x, y = y, alpha = 0.05)
 #'
+#'
+#'
 myConstr = function(x, y, alpha){
   df <- data.frame(x=x,y=y)
-  t = t.test(x, y, mu=0, var.equal = TRUE)
-  #names(t)
+  library(stats)
+  t = stats::t.test(x, y, mu=0, var.equal = TRUE)
+
   ci = t["conf.int"]
   p_value = t["p.value"]
 
@@ -28,9 +31,10 @@ myConstr = function(x, y, alpha){
 
 library(magrittr)
 library(kableExtra)
+
 print.Rttest = function(x){
-  #print the data using kableExtra::kable()
-  kableExtra::kable(x[["data"]], align = c('c', 'c') , digits = 4, booktabs = TRUE, caption = "population samples y and x") %>%
-    kable_styling()
+  library(kableExtra)
+  kableExtra::kable_styling(kable(x[["data"]], align = c('c', 'c') ,linesep = "\\addlinespace", digits = 4, booktabs = TRUE, caption = "population samples y and x"))
 
 }
+

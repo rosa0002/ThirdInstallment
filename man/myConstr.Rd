@@ -18,4 +18,6 @@ Takes two vectors and a alpha value, and returs a list containing a data frame o
 \examples{
 x <-rnorm(30,5,2); y<- rnorm(30, 3,2); alpha <- 0.05; myConstr(x = x, y = y, alpha = 0.05)
 
+
+
 }

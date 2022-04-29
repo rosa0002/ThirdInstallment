@@ -12,10 +12,8 @@ library(kableExtra)
 #'
 
 print.Rttest = function(x){
-  library(magrittr)
   library(kableExtra)
-  #print the data using kableExtra::kable()
-  kableExtra::kable(x[["data"]], align = c('c', 'c') , digits = 4, booktabs = TRUE, caption = "population samples y and x") %>%
-  kable_styling()
+  kableExtra::kable_styling(kable(x[["data"]], align = c('c', 'c') ,linesep = "\\addlinespace", digits = 4, booktabs = TRUE, caption = "population samples y and x"))
 
 }
+

@@ -7,7 +7,7 @@
 \method{print}{Rttest}(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{vector of what we are trying to get from the list}
 }
 \value{
 the data frame x and y
@@ -16,6 +16,6 @@ the data frame x and y
 Print method  for the constructor function with the class Rttest
 }
 \examples{
-obj <- myConstr(x = x, y = y, alpha = 0.05); print(obj)
+
 
 }

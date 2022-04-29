@@ -1,0 +1,63 @@
+---
+title: 'Third installment: Pkg proj'
+author: "Wagner Rosa"
+date: "4/25/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# The constructor function from the first installment 
+
+## Making of the data 
+```{r}
+# using the data provided by the instructor 
+set.seed(21);x <-rnorm(30,5,2); set.seed(23); y<- rnorm(30, 3,2); alpha <- 0.05
+```
+
+## constructor 
+```{r}
+# Constructor:
+# we use a t-test to find the confidence interval for mux - muy
+# assume equal variance
+
+myConstr = function(x, y, alpha){
+  df <- data.frame(x=x,y=y)   
+  t = t.test(x, y, mu=0, var.equal = TRUE)
+  #names(t)
+  ci = t["conf.int"]
+  p_value = t["p.value"]
+  
+  # the named list
+  myList = list(data = df, alpha = alpha, confidence_interval = ci, p_value = p_value)
+  class(myList) = "Rttest"
+  myList
+}
+
+```
+
+
+# A print method that uses the generic "print" 
+```{r}
+
+print.Rttest = function(x){
+  library(magrittr)
+  library(kableExtra)
+  kableExtra::kable(x[["data"]], align = c('c', 'c') ,linesep = "\\addlinespace", digits = 4, booktabs = TRUE, caption = "population samples y and x") %>%
+    kable_styling()
+    
+}
+
+```
+
+
+# Calling the constructor 
+```{r}
+set.seed(21);x <-rnorm(30,5,2); set.seed(23); y<- rnorm(30, 3,2); alpha <- 0.05
+obj <- ThirdInstallmet::
+::myconstr(x=x,y=y,alpha = 0.05)
+library(mypackage)
+print(obj)
+```
